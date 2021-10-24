@@ -66,6 +66,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .header-pictrue {
   height: 100%;
