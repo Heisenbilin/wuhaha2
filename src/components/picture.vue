@@ -1,5 +1,17 @@
 <template>
-  <a-carousel arrows>
+  <div class="picture-container" v-if="pictrues[current - 1]">
+    <img
+      alt="xiong"
+      class="header-pictrue"
+      :src="require('../assets/21-10-23' + pictrues[current - 1]?.slice(1))"
+    />
+  </div>
+  <a-pagination
+    v-model:current="current"
+    v-model:pageSize="pageSize"
+    :total="pictrues.length"
+  />
+  <!-- <a-carousel arrows>
     <template #prevArrow>
       <div class="custom-slick-arrow" style="zindex: 1">
         <left-circle-outlined />
@@ -11,33 +23,27 @@
       </div>
     </template>
     <template v-for="(pictrue, index) in pictrues" :key="index">
-      <div>
-        <div class="picture-container">
-          <img
-            alt="xiong"
-            class="header-pictrue"
-            :src="require('../assets/21-10-23' + pictrue.slice(1))"
-          />
-        </div>
-      </div>
+      <div></div>
     </template>
-  </a-carousel>
+  </a-carousel> -->
 </template>
 
 <script>
-import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons-vue";
+// import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons-vue";
 import { ref, onMounted } from "vue";
 export default {
   name: "Pictrue",
   components: {
-    LeftCircleOutlined,
-    RightCircleOutlined,
+    // LeftCircleOutlined,
+    // RightCircleOutlined,
   },
   props: {
     msg: String,
   },
   setup() {
     const pictrues = ref([]);
+    const current = ref(1);
+    const pageSize = ref(1);
     onMounted(() => {
       const files = require
         .context("../assets/21-10-23/", false, /.jpg$/)
@@ -47,6 +53,8 @@ export default {
     });
     return {
       pictrues,
+      current,
+      pageSize,
     };
   },
 };

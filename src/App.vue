@@ -26,7 +26,7 @@
       <img alt="xiong" class="header-pictrue" src="./assets/header/xiong.jpg" />
     </a-col>
   </a-row>
-  <a-row>
+  <a-row class="content">
     <a-col :sm="24" :md="6">
       <h3>
         <FileImageOutlined />
@@ -36,6 +36,7 @@
     </a-col>
     <a-col :sm="24" :md="18"><Picture msg="Welcome to Your Vue.js App"/></a-col>
   </a-row>
+  <div class="footer"></div>
 </template>
 
 <script>
@@ -116,11 +117,17 @@ export default {
 }
 
 .time {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .text {
-  margin-left: 1.5rem;
-  font-size: 1.5rem;
+  margin-left: 1rem;
+  font-size: 1rem;
   color: #707070;
+}
+.content {
+  margin-bottom: 3rem;
+}
+.footer {
+  height: 2rem;
 }
 </style>
